@@ -12,8 +12,10 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "@reduxjs/toolkit": "^2.0.1",
     "@types/react-redux": "^7.1.32",
     "@types/redux-saga": "^0.10.5",
+    "axios": "^1.6.2",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
