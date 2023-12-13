@@ -45,6 +45,3 @@ This is a React Native application that displays Star Wars films and provides in
 - `react-native-chart-kit`: Used to display the bar chart.
 - Other dependencies can be found in the `package.json` file.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
