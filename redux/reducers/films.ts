@@ -15,11 +15,11 @@ const initialState: FilmsState = {
 const films = (state = initialState, action: any) => {
   switch (action.type) {
     case F.FETCH_FILMS_REQUEST:
-        return {
+      return {
           ...state,
           loading: true,
           error: null,
-        };
+      };
     case F.FETCH_FILMS_SUCCESS:
       return {
         ...state,
