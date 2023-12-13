@@ -1,15 +1,32 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen } from "@views";
+import { HomeScreen, FilmScreen } from "@views";
 
-const Stack = createNativeStackNavigator();
+type RootStackParamList = {
+  Home: {};
+  Film: { film: any };
+};
+
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="Inicio" component={HomeScreen}></Stack.Screen>
-        </Stack.Navigator>
-    )
+  return (
+    <RootStack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerBackTitleVisible: false }}
+    >
+      <RootStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ title: "Star Wars Movies" }}
+      ></RootStack.Screen>
+      <RootStack.Screen
+        name="Film"
+        component={FilmScreen}
+        options={({ route }) => ({ title: route.params.film.title })}
+      ></RootStack.Screen>
+    </RootStack.Navigator>
+  );
 }
 
-export { RootNavigator }
+export { RootNavigator };
