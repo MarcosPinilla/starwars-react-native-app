@@ -11,3 +11,13 @@ export const fetchFilms = async () => {
     throw error;
   }
 };
+
+export const fetchPlanetDetails = async (planetUrl: string) => {
+  try {
+    const response = await axios.get(planetUrl);
+    return response.data;
+  } catch (error){
+    console.error('Error fetching planets:', error);
+    throw error;
+  }
+};
