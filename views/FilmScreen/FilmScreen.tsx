@@ -57,6 +57,28 @@ const FilmScreen: React.FC<FilmScreenProps> = ({
     );
   };
 
+  const renderPlanetInformation = () => {
+    return(<View><View style={s.viewPlanets}>
+      <Text style={s.textStrong}>Lista de planetas: </Text>
+
+      {planets.map((planet) => (
+        <View key={planet.name} style={s.viewPlanetInformation}>
+          <Text style={s.text}>- {planet.name}</Text>
+          <View style={{ marginLeft: 20, flexDirection: "column" }}>
+            <Text>Clima: {planet.climate}</Text>
+            <Text>Gravedad: {planet.gravity}</Text>
+            <Text>Terreno: {planet.terrain}</Text>
+            <Text>Habitantes: {planet.population}</Text>
+          </View>
+        </View>
+      ))}
+    </View>
+    <View style={{ paddingVertical: 20 }}>
+      <Text style={s.textStrong}>Periodo Orbital por planeta en horas: </Text>
+      <View style={{ alignSelf: "center" }}>{renderBarChart()}</View>
+    </View></View>)
+  }
+
   useEffect(() => {
     const fetchImage = async () => {
       try {
@@ -113,26 +135,7 @@ const FilmScreen: React.FC<FilmScreenProps> = ({
       <View style={s.paragraphView}>
         <Text style={s.paragraph}>{film.opening_crawl}</Text>
       </View>
-
-      <View style={s.viewPlanets}>
-        <Text style={s.textStrong}>Lista de planetas: </Text>
-
-        {planets.map((planet) => (
-          <View key={planet.name} style={s.viewPlanetInformation}>
-            <Text style={s.text}>- {planet.name}</Text>
-            <View style={{ marginLeft: 20, flexDirection: "column" }}>
-              <Text>Clima: {planet.climate}</Text>
-              <Text>Gravedad: {planet.gravity}</Text>
-              <Text>Terreno: {planet.terrain}</Text>
-              <Text>Habitantes: {planet.population}</Text>
-            </View>
-          </View>
-        ))}
-      </View>
-      <View style={{ paddingVertical: 20 }}>
-        <Text style={s.textStrong}>Periodo Orbital por planeta en horas: </Text>
-        <View style={{ alignSelf: "center" }}>{renderBarChart()}</View>
-      </View>
+      {renderPlanetInformation()}
     </ScrollView>
   );
 };
